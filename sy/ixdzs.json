@@ -1,0 +1,52 @@
+[
+  {
+    "bookSourceGroup": "🎉 小说",
+    "bookSourceName": "❤️ 爱下电子书",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://ixdzs8.com",
+    "customOrder": 26,
+    "enabled": true,
+    "enabledCookieJar": false,
+    "enabledExplore": false,
+    "exploreUrl": "@js:\nvar url1=['https://ixdzs8.com/hot/UID?page={{page}}','https://ixdzs8.com/sort/UID/index-0-0-0-{{page}}.html',\n    'https://ixdzs8.com/sort/UID/index-0-2-0-{{page}}.html','https://ixdzs8.com/end/'];\nvar defaultTitle={'title': '','url': '','style': {'layout_flexGrow': 1, 'layout_flexBasisPercent': 1}};\nvar defaultContent={'title': '','url': '','style': {'layout_flexGrow': 1, 'layout_flexBasisPercent': 0.25}};\nvar tab1={'总榜':'','月榜':'month/','日榜':'day/'}\nvar tab2={'玄幻奇幻':'1','武侠小说':'10','修真仙侠':'2','都市青春':'3','军事历史':'4','网游竞技':'5','科幻灵异':'6','言情穿越':'7','耽美同人':'8','台言古言':'9','其他小说':'0'}\nvar reultJson=[];\nvar AddTab =function(title,listMap,url){\n    if(title!=='')AddSingleTab(title,'');\n    for (var key in listMap) {\n        if (listMap.hasOwnProperty(key)) {\n            tempContent=JSON.parse(JSON.stringify(defaultContent));\n            tempContent.title=key;\n            tempContent.url=url.replace('UID',listMap[key]);\n            reultJson.push(tempContent);\n        }\n    }\n}\nvar AddSingleTab =function(title,url){\n    tempTitle=JSON.parse(JSON.stringify(defaultTitle));\n    tempTitle.title=title;\n    tempTitle.url=url;\n    reultJson.push(tempTitle);\n}\n\nAddTab(\"༺ˇ»`ʚ榜单ɞ´«ˇ༻\",tab1,url1[0]);\nAddSingleTab(\"所有完结作品\",url1[3]);\nAddTab(\"༺ˇ»`ʚ分类ɞ´«ˇ༻\",tab2,url1[1]);\nAddTab(\"༺ˇ»`ʚ完结分类ɞ´«ˇ༻\",tab2,url1[2]);\n\nJSON.stringify(reultJson);",
+    "header": "{\"User-Agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0\"}",
+    "lastUpdateTime": 1744532414844,
+    "respondTime": 180000,
+    "ruleBookInfo": {
+      "author": "a",
+      "coverUrl": "c",
+      "downloadUrls": "d",
+      "init": "@js:\n$ = (_) => java.getString(_);\n({\n    n: $(\"[property$=book_name]@content\"),\n    a: $(\"[property$=author]@content\"),\n    k: $(\"[property~=category|status|update_time]@content\"),\n    w: $(\"text.字数@text\\#\\#字数[：:]\"),\n    l: $(\"[property~=las?test_chapter_name]@content\"),\n    i: $(\"[property$=description]@content\"),\n    c: $(\"[property$=image]@content\"),\n    t: $(\"[property$=read_url]@content\"),\n    d: $(\"text.下载@href\")\n});",
+      "intro": "i",
+      "kind": "k",
+      "lastChapter": "l",
+      "name": "n",
+      "tocUrl": "/novel/clist/,{\n  \"body\": \"bid={{result.t.match(/.*read\\/(.*?)\\//)[1]}}\",\n  \"method\": \"POST\"\n}",
+      "wordCount": "w"
+    },
+    "ruleContent": {
+      "content": "<js>\nurl = java.hexDecodeToString(result);\njava.ajax(url)\n</js>\ntag.section@p@text"
+    },
+    "ruleExplore": {},
+    "ruleSearch": {
+      "author": ".bauthor@text",
+      "bookList": ".u-list .burl",
+      "bookUrl": "a.0@href",
+      "checkKeyWord": "系统",
+      "coverUrl": "img@src",
+      "intro": ".l-p2@text",
+      "kind": ".lz@text",
+      "lastChapter": ".l-chapter@text",
+      "name": ".bname@text"
+    },
+    "ruleToc": {
+      "chapterList": "$.data",
+      "chapterName": "$.title",
+      "chapterUrl": "{{book.bookUrl}}p{{$.ordernum}}.html\n<js>java.base64Encode(result)</js>\ndata:;base64,{{result}},{\"type\":\"ixdzs8\"}",
+      "formatJs": "",
+      "isVolume": "$.ctype"
+    },
+    "searchUrl": "/bsearch?q={{key}}",
+    "weight": 0
+  }
+]
